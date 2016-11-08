@@ -10,7 +10,8 @@ Dir["lib/**/*.rb"].each {|file| require_relative file }
 animations = [
   {name: 'people', animation: PersonAnimation.new(['me'])},
   {name: 'dog-car', animation: DogCarAnimation.new},
-  {name: 'dog-car-punkd', animation: DogCarPunkdAnimation.new}
+  {name: 'dog-car-punkd', animation: DogCarPunkdAnimation.new},
+  {name: 'rolling-face', animation: RollingFaceAnimation.new}
 ]
 selections = animations.each_with_index.map {|animation, index| "#{index + 1}: #{animation[:name]}"}.join("\n")
 animation = ask("What animation do you want to play?\n" + selections) {|q| q.echo = true}
