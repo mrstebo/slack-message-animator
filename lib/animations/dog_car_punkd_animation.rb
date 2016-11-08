@@ -8,7 +8,7 @@ class DogCarPunkdAnimation
     animation = (0..length).map {|i| AnimationFrame.new(0.2, "#{dog}#{' '* (length - i)}#{car}")}
     animation + [
       AnimationFrame.new(2, "#{dog_face}#{punch}#{car}"),
-      AnimationFrame.new(2, "#{dog_face}#{no_way}#{car}"),
+      AnimationFrame.new(2, "#{dog_face}#{point_right}#{car}"),
       AnimationFrame.new(1, "#{dog_face}#{boot}#{car}"),
       AnimationFrame.new(0.5, "#{dog_face}#{boot}#{boom}#{car}"),
       AnimationFrame.new(0.5, "#{dog_face}#{boot}#{boom}#{boom}#{car}"),
@@ -38,8 +38,8 @@ class DogCarPunkdAnimation
     ':boom:'
   end
 
-  def punch
-    ':punch:'
+  def point_right
+    ':point_right:'
   end
 
   def no_way
