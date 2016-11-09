@@ -7,13 +7,13 @@ class AnimationRunner
   def animate
     @session.assert_selector '#message-input'
     sleep 4
-    @session.find('#message-input').native.send_keys frames.first.content
-    @session.find('#message-input').native.send_keys :return
-    sleep 1
 
-    frames.each do |frame|
-      @session.find('#message-input').native.send_keys :up
-      @session.find('#msg_text').native.send_keys [:control, 'a'], frame.content, :return
+    frames.each_with_index do |frame, index|
+      if index > 0 && frame.override_previous_frame
+        edit_previous_message(frame.content)
+      else
+        create_new_message(frame.content)
+      end
       sleep frame.delay
     end
   end
@@ -22,5 +22,15 @@ class AnimationRunner
 
   def frames
     @frames ||= @animation.frames
+  end
+
+  def create_new_message(message)
+    @session.find('#message-input').native.send_keys message
+    @session.find('#message-input').native.send_keys :return
+  end
+
+  def edit_previous_message(message)
+    @session.find('#message-input').native.send_keys :up
+    @session.find('#msg_text').native.send_keys [:control, 'a'], message, :return
   end
 end
