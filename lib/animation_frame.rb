@@ -1,8 +1,9 @@
 class AnimationFrame
-  attr_reader :delay, :content
+  attr_reader :content, :delay, :override_previous_frame
 
-  def initialize(delay, content)
-    @delay = delay
+  def initialize(content, options)
     @content = content
+    @delay = options.fetch(:delay, 1)
+    @override_previous_frame = options.fetch(:override_previous_frame, false)
   end
 end
