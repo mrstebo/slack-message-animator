@@ -5,7 +5,7 @@ class PersonAnimation
   end
 
   def frames
-    (0..@frames).map do
+    (0..@frames-1).map do
       create_frame(4, generate_phrase_for(@people.sample))
     end
   end

@@ -4,7 +4,7 @@ class RollingFaceAnimation
   end
 
   def frames
-    animation = (0..@length).map do |i|
+    animation = (0..@length-1).map do |i|
       current_face = i % 2 == 0 ? face : upside_down_face
       create_frame(0.25, "#{cactus}#{' '* (@length - i)}#{current_face}#{point_left}")
     end

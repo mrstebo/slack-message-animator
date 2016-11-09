@@ -4,7 +4,7 @@ class DogCarPunkdAnimation
   end
 
   def frames
-    animation = (0..@length).map {|i| create_frame(0.2, "#{dog}#{' '* (@length - i)}#{car}")}
+    animation = (0..@length-1).map {|i| create_frame(0.2, "#{dog}#{' '* (@length - i)}#{car}")}
     animation + [
       create_frame(2, "#{dog_face}#{punch}#{car}"),
       create_frame(2, "#{dog_face}#{point_right}#{car}"),
