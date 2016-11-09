@@ -6,11 +6,18 @@ class PersonAnimation
 
   def frames
     (0..@frames).map do
-      AnimationFrame.new(4, generate_phrase_for(@people.sample))
+      create_frame(4, generate_phrase_for(@people.sample))
     end
   end
 
   private
+
+  def create_frame(delay, content)
+    AnimationFrame.new(content, {
+      delay: delay,
+      override_previous_frame: false
+    })
+  end
 
   def generate_phrase_for(person)
     [
