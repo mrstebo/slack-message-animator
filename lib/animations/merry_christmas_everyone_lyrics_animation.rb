@@ -3,7 +3,7 @@ class MerryChristmasEveryoneLyricsAnimation
     animation = []
     animation.push(create_frame(5, "#{christmas_tree}#{christmas_tree}#{christmas_tree} Merry Christmas Everyone - Shakin' Stevens #{christmas_tree}#{christmas_tree}#{christmas_tree}"))
     lyrics.each do |lyric|
-      animation.push(create_frame(2, "#{christmas_tree}#{notes} #{lyric} #{christmas_tree}#{notes}"))
+      animation.push(create_frame(2, "#{christmas_tree}#{notes} #{lyric} #{notes}#{christmas_tree}"))
     end
     animation.push(create_frame(1, "#{christmas_tree}#{christmas_tree}#{christmas_tree}#{christmas_tree}#{christmas_tree}#{christmas_tree}"))
     animation
