@@ -14,7 +14,8 @@ animations = [
   {name: 'rolling-face', animation: RollingFaceAnimation.new},
   {name: 'donald-trump-quotes', animation: DonaldTrumpQuotesAnimation.new},
   {name: 'clock', animation: ClockAnimation.new},
-  {name: 'merry-christmas-everyone-lyrics', animation: MerryChristmasEveryoneLyricsAnimation.new}
+  {name: 'merry-christmas-everyone-lyrics', animation: MerryChristmasEveryoneLyricsAnimation.new},
+  {name: 'pokemon-theme-song-lyrics', animation: PokemonThemeSongLyricsAnimation.new}
 ]
 selections = animations.each_with_index.map {|animation, index| "#{index + 1}: #{animation[:name]}"}.join("\n")
 animation = ask("What animation do you want to play?\n" + selections) {|q| q.echo = true}
