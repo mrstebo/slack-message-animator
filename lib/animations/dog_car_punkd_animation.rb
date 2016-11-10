@@ -1,6 +1,6 @@
 class DogCarPunkdAnimation
   def initialize(options = {})
-    @length = options.fetch(:length, 10)
+    @length = options.fetch(:length, 20)
   end
 
   def frames
