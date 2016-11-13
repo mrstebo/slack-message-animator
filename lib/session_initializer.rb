@@ -12,12 +12,18 @@ module SessionInitializer
     session = Capybara::Session.new(:chrome)
 
     session.visit "https://#{team_name}.slack.com/messages/#{channel}/"
-    session.click_on 'Sign in with Google'
-    session.fill_in 'Email', with: email
-    session.click_on 'Next'
-    session.fill_in 'Password', with: password
-    session.click_on 'Sign in'
 
+    if session.find('strong', text: /^email address$/) && session.find('strong', text: /^password$/)
+      session.fill_in 'email', with: email
+      session.fill_in 'password', with: password
+      session.find('#signin_btn').click
+    else
+      session.click_on 'Sign in with Google'
+      session.fill_in 'Email', with: email
+      session.click_on 'Next'
+      session.fill_in 'Password', with: password
+      session.click_on 'Sign in'
+    end
     session
   end
 end
