@@ -13,7 +13,7 @@ module SessionInitializer
 
     session.visit "https://#{team_name}.slack.com/messages/#{channel}/"
 
-    if session.find('strong', text: /^email address$/) && session.find('strong', text: /^password$/)
+    if session.first('strong', text: /^email address$/) && session.first('strong', text: /^password$/)
       session.fill_in 'email', with: email
       session.fill_in 'password', with: password
       session.find('#signin_btn').click
