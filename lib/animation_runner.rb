@@ -25,12 +25,20 @@ class AnimationRunner
   end
 
   def create_new_message(message)
-    @session.find('#message-input').native.send_keys message
+    message.lines.each do |line|
+      @session.find('#message-input').native.send_keys line.chomp
+      @session.find('#message-input').native.send_keys [:control, :return]
+    end
     @session.find('#message-input').native.send_keys :return
   end
 
   def edit_previous_message(message)
     @session.find('#message-input').native.send_keys :up
-    @session.find('#msg_text').native.send_keys [:control, 'a'], message, :return
+    @session.find('#msg_text').native.send_keys [:control, 'a']
+    message.lines.each do |line|
+      @session.find('#msg_text').native.send_keys line.chomp
+      @session.find('#msg_text').native.send_keys [:control, :return]
+    end
+    @session.find('#msg_text').native.send_keys :return
   end
 end
