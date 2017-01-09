@@ -1,5 +1,5 @@
 class AnimationFrame
-  attr_reader :content, :delay, :override_previous_frame
+  attr_accessor :content, :delay, :override_previous_frame
 
   def initialize(content, options)
     @content = content
