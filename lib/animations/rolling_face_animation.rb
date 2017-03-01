@@ -3,6 +3,9 @@ class RollingFaceAnimation
     @length = options.fetch(:length, 20)
   end
 
+  def ask_questions
+  end
+
   def frames
     animation = (0..@length-1).map do |i|
       current_face = i % 2 == 0 ? face : upside_down_face

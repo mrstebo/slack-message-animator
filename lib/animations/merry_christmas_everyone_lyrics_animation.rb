@@ -1,4 +1,7 @@
 class MerryChristmasEveryoneLyricsAnimation
+  def ask_questions
+  end
+
   def frames
     animation = []
     animation.push(create_frame(5, "#{christmas_tree}#{christmas_tree}#{christmas_tree} Merry Christmas Everyone - Shakin' Stevens #{christmas_tree}#{christmas_tree}#{christmas_tree}"))
