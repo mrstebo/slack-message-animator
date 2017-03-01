@@ -1,4 +1,8 @@
 class HappyBirthdayAnimation
+  def initialize(person)
+    @person = person
+  end
+
   def frames
     [
       create_frame(1, "#{birthday_cake} Happy Birthday @#{@person}! #{birthday_cake}"),
