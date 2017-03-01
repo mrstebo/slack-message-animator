@@ -1,4 +1,7 @@
 class ItsAllComingBackToMeNowLyricsAnimation
+  def ask_questions
+  end
+
   def frames
     animation = []
     animation.push(create_frame(5, "#{dancer}#{dancer} It's All Coming Back To Me Now - Pandora's Box #{dancer}#{dancer}"))

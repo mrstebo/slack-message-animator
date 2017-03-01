@@ -3,6 +3,9 @@ class DogCarAnimation
     @length = options.fetch(:length, 20)
   end
 
+  def ask_questions
+  end
+
   def frames
     animation = (0..@length-1).map {|i| create_frame(0.2, "#{dog}#{' '* (@length - i)}#{car}")}
     animation + [

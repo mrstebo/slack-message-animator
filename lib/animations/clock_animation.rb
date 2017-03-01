@@ -1,4 +1,7 @@
 class ClockAnimation
+  def ask_questions
+  end
+
   def frames
     animation = (1..12).map do |i|
       create_frame(1, clock(i))
