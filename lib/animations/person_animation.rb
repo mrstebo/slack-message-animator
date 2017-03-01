@@ -1,7 +1,13 @@
 class PersonAnimation
-  def initialize(people, options = {})
-    @people = people
+  def initialize(options = {})
+    @people = []
     @frames = options.fetch(:frames, 1)
+  end
+
+  def ask_questions
+    @people = ask('Who would you like to generate phrases for? (separate with comma for multiple people)') {|q|
+      q.echo = true
+    }.split(',').map {|name| name.strip}
   end
 
   def frames

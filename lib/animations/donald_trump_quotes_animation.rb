@@ -6,6 +6,9 @@ class DonaldTrumpQuotesAnimation
     @length = options.fetch(:length, 1)
   end
 
+  def ask_questions
+  end
+
   def frames
     (0..@length-1).map do |i|
       create_frame(4, "#{get_trump_quote} - #{get_trump_gif}")

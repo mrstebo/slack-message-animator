@@ -1,4 +1,7 @@
 class PokemonThemeSongLyricsAnimation
+  def ask_questions
+  end
+
   def frames
     animation = []
     animation.push(create_frame(4, start_gif))
