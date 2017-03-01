@@ -1,9 +1,10 @@
 class HappyBirthdayAnimation
-  def initialize(person)
-    @person = person
+  def ask_questions
+    @person = ask("Whos birthday is it?") {|q| q.echo = true}
   end
 
   def frames
+    return [] unless @person
     [
       create_frame(1, "#{birthday_cake} Happy Birthday @#{@person}! #{birthday_cake}"),
       create_frame(4, "Happy Birthday to you"),
