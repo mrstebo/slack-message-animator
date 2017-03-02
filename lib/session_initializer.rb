@@ -24,6 +24,11 @@ module SessionInitializer
       session.fill_in 'Password', with: password
       session.click_on 'Sign in'
     end
+
+    session.assert_selector '#channels'
+    # Just incase we were not directed to the right channel :/
+    session.visit "https://#{team_name}.slack.com/messages/#{channel}/"
+
     session
   end
 end
