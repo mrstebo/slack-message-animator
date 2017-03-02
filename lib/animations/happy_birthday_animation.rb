@@ -6,12 +6,12 @@ class HappyBirthdayAnimation
   def frames
     return [] unless @person
     [
-      create_frame(1, "#{birthday_cake} Happy Birthday @#{@person}! #{birthday_cake}"),
-      create_frame(4, "Happy Birthday to you"),
+      create_frame(4, "#{birthday_cake} Happy Birthday @#{@person}! #{birthday_cake}"),
       create_frame(2, "Happy Birthday to you"),
+      create_frame(2, "Happy Birthday to you!"),
       create_frame(2, "Happy Birthday, dear @#{@person}!"),
       create_frame(3, "Happy Birthday to you!"),
-      create_frame(5, "Have an awesome day, @#{@person}! #{hugging_face}")
+      create_frame(1, "Have an awesome day, @#{@person}! #{hugging_face}")
     ]
   end
 
