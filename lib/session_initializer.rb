@@ -19,10 +19,10 @@ module SessionInitializer
       session.find('#signin_btn').click
     else
       session.click_on 'Sign in with Google'
-      session.fill_in 'Email', with: email
-      session.click_on 'Next'
-      session.fill_in 'Password', with: password
-      session.click_on 'Sign in'
+      session.fill_in 'identifier', with: email
+      session.find('#identifierNext').click
+      session.fill_in 'password', with: password
+      session.find('#passwordNext').click
     end
 
     session.assert_selector '#channels'
