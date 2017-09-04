@@ -25,7 +25,7 @@ module SessionInitializer
       session.find('#passwordNext').click
     end
 
-    session.assert_selector '#channels'
+    session.assert_selector '#col_channels'
     # Just incase we were not directed to the right channel :/
     session.visit "https://#{team_name}.slack.com/messages/#{channel}/"
 
