@@ -1,5 +1,6 @@
 class AnimationRunner
-  MESSAGE_INPUT_EDITOR = '.ql-editor'
+  MESSAGE_INPUT_ELEMENT = '#msg_input'
+  MESSAGE_TEXT_ELEMENT = '#msg_text'
 
   def initialize(session, animation)
     @session = session
@@ -7,7 +8,7 @@ class AnimationRunner
   end
 
   def animate
-    @session.assert_selector MESSAGE_INPUT_EDITOR
+    @session.assert_selector MESSAGE_INPUT_ELEMENT
     sleep 4
 
     frames.each_with_index do |frame, index|
@@ -28,20 +29,19 @@ class AnimationRunner
 
   def create_new_message(message)
     message.lines.each do |line|
-      @session.find(MESSAGE_INPUT_EDITOR).native.send_keys line.chomp
-      @session.find(MESSAGE_INPUT_EDITOR).native.send_keys [:control, :return]
+      @session.find(MESSAGE_INPUT_ELEMENT).native.send_keys line.chomp
+      @session.find(MESSAGE_INPUT_ELEMENT).native.send_keys [:control, :return]
     end
-    @session.find(MESSAGE_INPUT_EDITOR).native.send_keys :return
+    @session.find(MESSAGE_INPUT_ELEMENT).native.send_keys :return
   end
 
   def edit_previous_message(message)
-    @session.find(MESSAGE_INPUT_EDITOR).native.send_keys :up
-    @session.first(MESSAGE_INPUT_EDITOR).native.send_keys [:shift, :home]
-    @session.first(MESSAGE_INPUT_EDITOR).native.send_keys :backspace
+    @session.find(MESSAGE_INPUT_ELEMENT).native.send_keys :up
+    @session.find(MESSAGE_TEXT_ELEMENT).native.send_keys [:control, 'a']
     message.lines.each do |line|
-      @session.first(MESSAGE_INPUT_EDITOR).native.send_keys line.chomp
-      @session.first(MESSAGE_INPUT_EDITOR).native.send_keys [:control, :return]
+      @session.find(MESSAGE_TEXT_ELEMENT).native.send_keys line.chomp
+      @session.find(MESSAGE_TEXT_ELEMENT).native.send_keys [:control, :return]
     end
-    @session.first(MESSAGE_INPUT_EDITOR).native.send_keys :return
+    @session.find(MESSAGE_TEXT_ELEMENT).native.send_keys :return
   end
 end
